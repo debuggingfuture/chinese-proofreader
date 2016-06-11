@@ -1,0 +1,32 @@
+{
+  "name": "chinese-proofreader",
+  "version": "1.0.0",
+  "description": "Chrome Extension proofreading Chinese on the Web",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "lodash": "^4.13.1",
+    "segment": "^0.1.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register test/*spec.js",
+    "itest": "webpack && cp test/test.html dist/ && http-server dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincentlaucy/chinese-proofreader.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincentlaucy/chinese-proofreader/issues"
+  },
+  "homepage": "https://github.com/vincentlaucy/chinese-proofreader#readme"
+}
