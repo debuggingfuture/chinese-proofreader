@@ -1,10 +1,33 @@
 /*
 * @Author: lu
 * @Date:   2016-06-11 14:41:37
-* @Last Modified by:   lu
-* @Last Modified time: 2016-06-11 14:59:52
+* @Last Modified by:   han4wluc
+* @Last Modified time: 2016-06-11 17:50:54
 */
 
 .error-underline{
   border-bottom: 2px solid red;
+  /*display: inline-block;*/
+  position: relative;
+}
+
+.error-underline .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    font-size: 12;
+    position: absolute;
+    z-index: 1;
+    top: 25px;
+    left: -40px;
+}
+
+.error-underline:hover .tooltiptext {
+    visibility: visible;
 }
