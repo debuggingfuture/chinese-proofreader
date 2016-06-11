@@ -1,2 +1,2 @@
 # chinese-proofreader
-Chrome Extension proofreading chinese on the Web
+Chrome Extension proofreading Chinese on the Web
