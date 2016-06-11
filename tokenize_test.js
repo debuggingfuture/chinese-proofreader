@@ -2,13 +2,16 @@
 var Segment = require('segment');
 // 创建实例
 var segment = new Segment();
+
 // 使用默认的识别模块及字典，载入字典文件需要1秒，仅初始化时执行一次即可
 segment.useDefault();
-
+//dynamic load
+var dicts = require.context('./dict',false,/.*txt$/);
+// segment.loadDict(dicts('./jieba.txt'));
 
 var examples = require('./examples');
 
-// TODO port back 
+// TODO port back
 function isAlphaNumeric(str) {
   var code, i, len;
 

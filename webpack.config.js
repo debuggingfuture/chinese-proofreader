@@ -24,6 +24,7 @@ module.exports = {
           presets: ['es2015']
         }
       },
+      { test: /\.txt$/, loader: "raw-loader" },
       { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.png$/, loader: "url-loader?limit=100000" },
       { test: /\.(woff(2)?|eot|svg|ttf)$/, loader: "url-loader?limit=100000" },
