@@ -5,7 +5,8 @@ module.exports = {
     'app':'index.js',
     'vendors': [
        'lodash'
-    ]
+    ],
+    'chrome/content':'chrome/content.js'
   },
   output: {
     path: path.join(__dirname, 'dist'),

@@ -54,8 +54,9 @@ export default class ProofReader {
     _.forEach(textByHash, (v,k)=>{
       var newWords = this.findNewWords(v);
       console.log('newWords');
-      console.log(newWords);
+
       if(!_.isEmpty(newWords)){
+              console.log(newWords);
         words.push({
           'hash': k,
           'words': newWords
@@ -65,7 +66,8 @@ export default class ProofReader {
 
     });
     return {
-      words: words
+      words: words,
+      mixedPunctuation: {}
     };
   }
 }

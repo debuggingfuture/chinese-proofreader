@@ -4,17 +4,17 @@
   "name": "Chinese-proofreader",
   "description": "This extension shows a Google Image search result for the current page",
   "version": "1.0",
-  
+
   "content_scripts": [
     {
-    "matches": ["http://*/*"],
+    "matches": ["*://*/*"],
     "css": ["style.css"],
-    "js": ["jquery-3.0.0.min.js", "content.js"]
+    "js": ["content.js"]
     }
   ],
 
   "permissions": [
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "http://ajax.googleapis.com/"
   ]
 }

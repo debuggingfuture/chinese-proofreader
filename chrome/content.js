@@ -5,53 +5,9 @@
 * @Last Modified time: 2016-06-11 21:37:14
 */
 
-var ProofReader = {
-  proofread: function(hashes){
-
-    var words = [{
-      pos: 123,
-      word: '国外'
-    },
-    {
-      pos: 123,
-      word: '产品'
-    }];
-
-    var words2 = [{
-      pos: 123,
-      word: '教育'
-    },
-    {
-      pos: 123,
-      word: '出'
-    }];
-
-    var hashObjects = [];
-    for (var key in hashes){
-      hashObjects.push({
-        hash: key,
-        paragraph: hashes[key]
-      });
-    }
-    var wrongWords = hashObjects.map(function(hashObj){
-      return {
-        hash: hashObj.hash,
-        words: words
-      }
-    });
-    var mixedPunctuation = hashObjects.map(function(hashObj){
-      return {
-        hash: hashObj.hash,
-        words: words2,
-      }
-    });
-
-    return {
-      words: wrongWords,
-      mixedPunctuation: mixedPunctuation,
-    }
-  }
-}
+import $ from 'jquery';
+import './style.css';
+import ProofReader from '../app/proofreader';
 
 var entireContent = $('body').text();
 
@@ -95,7 +51,8 @@ recursiveReplace(document.body);
 
 // var expected = analyzeWrongWords(hashes);
 // console.log('hashes', hashes)
-var expected = ProofReader.proofread(hashes);
+var pr = new ProofReader();
+var expected = pr.proofread(hashes);
 
 // console.log('expected', expected);
 
@@ -127,7 +84,11 @@ var wrongWordsObj = joinWordsAndPunc(expected.words, expected.mixedPunctuation);
 wrongWordsObj.forEach(function(wordObj){
 
   var node = $('.'+wordObj.hash);
-
+  console.log('wrongWordsObj');
+  console.log(wordObj);
+  // if(_.isEmpty(wrongWords)){
+  //   return;
+  // }
   var wrongWords = wordObj.words.map(function(word){
     return word.word;
   });
