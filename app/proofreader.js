@@ -3,6 +3,7 @@ import segment from './engine/segment';
 import _ from 'lodash';
 
 import POSTAG from 'segment/lib/POSTAG.js';
+import {matchMixedPunctuation} from './engine/mixed';
 
 // 开始分词
 // console.log(examples);
@@ -50,6 +51,7 @@ export default class ProofReader {
   }
   proofread(textByHash) {
     var words = [];
+    var mixed = [];
 
     _.forEach(textByHash, (v,k)=>{
       var newWords = this.findNewWords(v);
@@ -64,10 +66,16 @@ export default class ProofReader {
         });
       }
 
+      mixed.push({
+        'hash': k,
+        'words': matchMixedPunctuation(v)
+      });
+      console.log('mixed');
+      console.log(mixed);
     });
     return {
       words: words,
-      mixedPunctuation: {}
+      mixedPunctuation: mixed
     };
   }
 }

@@ -41,9 +41,14 @@ function recursiveReplace(node) {
 
 
   } else if (node.nodeType == 1) { // element
-    $(node).contents().each(function () {
-        recursiveReplace(this);
-    });
+    try {
+      $(node).contents().each(function () {
+          recursiveReplace(this);
+      });
+    } catch(error) {
+      console.log(error);
+    }
+
   }
 }
 
@@ -54,9 +59,8 @@ recursiveReplace(document.body);
 var pr = new ProofReader();
 var expected = pr.proofread(hashes);
 
-// console.log('expected', expected);
+console.log('expected', expected);
 
-// expected.words,  expected.mixedPunctuations
 var joinWordsAndPunc = function(words, mixedPunctuations){
 
   var combinedObjects = words.concat(mixedPunctuations);
@@ -93,9 +97,14 @@ wrongWordsObj.forEach(function(wordObj){
     return word.word;
   });
 
+//TODO better escape
+  function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  }
+
   $(node).contents().each(function(){
     if(this.nodeType === 3){
-      var regex = new RegExp('(' +  wrongWords.join('|') + ')', 'g');
+      var regex = new RegExp('(' +  wrongWords.map(s=>escapeRegExp(s)).join('|') + ')', 'g');
       var oldHtml = $(this).text();
       var newHtml = oldHtml.replace(regex, '<span class="error-underline">$1<span class="tooltiptext">Grammar Error</span></span>');
       $(this).replaceWith(newHtml);
