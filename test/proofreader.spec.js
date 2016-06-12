@@ -17,7 +17,7 @@ describe('Proofreader', function() {
         {
           "hash":"hash2",
           "words":[{
-            pos: 123,
+            pos: 0,
             word: '副評'
           }]
         },
@@ -26,7 +26,7 @@ describe('Proofreader', function() {
         {
           "hash":"hash3",
           "words":[{
-            pos: 456,
+            pos: 0,
             word: ')'
           }]
         }

@@ -1,11 +1,17 @@
 console.log('test');
 
+
 import ProofReader from 'app/proofreader.js';
 
 
-
-// 开始分词
-// console.log(examples);
+// r = r.filter(v=>_.isUndefined(v.p))
+// .map(v=>
+//   {
+//     return {
+//       'pos': 0,
+//       'word': v.w
+//     }
 //
-// console.log(segment.doSegment(examples[0]));
+// });
+// console.log(r);
 // console.log(segment.doSegment('这是一个基于Node.js的中文分词模块。'));
